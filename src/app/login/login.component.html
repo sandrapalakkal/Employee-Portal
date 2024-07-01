@@ -1,1 +1,27 @@
-<p>login works!</p>
+<div style="height: 88vh;" class="d-flex align-items-center justify-content-center w-100">
+    <div style="width:1000px;" class="row shadow bg-dark rounded align-items-center p-5">
+        <div class="col-lg-6">
+            <img width="350px" height="250px" [src]="imgURL" class="img-fluid mt-5" alt="Login Illustration">
+        </div>
+        <div class="col-lg-6">
+                <form (ngSubmit)="login()" #loginForm="ngForm" class="border rounded p-5">
+                    <h4 class="text-light">Login Form</h4>
+                    <div class="text-center mb-3">
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input #useremail="ngModel" name="email" [(ngModel)]="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" email required>
+                        <label for="floatingInput">Email Address</label>
+                    </div>
+                    <div *ngIf="useremail.invalid && useremail.touched" class="text-danger fw-bolder mb-3">*Invalid Email</div>
+                    <div class="form-floating  mb-3">
+                        <input  #userpswd="ngModel" name="password" [(ngModel)]="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" pattern="[a-zA-Z0-9]*" required>
+                        <label for="floatingInput">Password</label>
+                    </div>
+                    <div *ngIf="userpswd.invalid && userpswd.touched" class="text-danger fw-bolder mb-3">*Invalid Password</div>
+                    <div class="d-grid">
+                        <button [disabled]="loginForm.invalid" type="submit" class="btn btn-warning">Login</button>
+                    </div>
+                </form>
+            </div>
+    </div>
+</div>
